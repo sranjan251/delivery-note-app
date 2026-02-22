@@ -1,20 +1,19 @@
 document.getElementById("deliveryForm")
 
-.addEventListener("submit",
-
-async function(e){
+.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-const formData=new FormData(this);
+const formData = new FormData(this);
 
-let data={};
+let data = {};
 
 formData.forEach((v,k)=>{
 
-data[k]=v;
+data[k] = v;
 
 });
+
 
 function formatList(text){
 
@@ -30,13 +29,17 @@ return text
 
 }
 
-data.documents=formatList(data.documents);
 
-data.paymentDetails=formatList(data.paymentDetails);
+data.documents = formatList(data.documents);
 
-data.additionalNotes=data.additionalNotes
+data.paymentDetails = formatList(data.paymentDetails);
+
+data.additionalNotes = (data.additionalNotes || "")
 
 .replace(/\n/g,"<br>");
+
+
+// SEND REQUEST
 
 const res = await fetch("/generate",{
 
@@ -52,10 +55,30 @@ body:JSON.stringify(data)
 
 });
 
+
+// MOBILE SAFE DOWNLOAD
+
 const blob = await res.blob();
 
-const url = window.URL.createObjectURL(blob);
+const blobUrl = URL.createObjectURL(blob);
 
-window.open(url,"_blank"); // better for mobile safari
+
+// Create REAL LINK (Safari Compatible)
+
+const link = document.createElement("a");
+
+link.href = blobUrl;
+
+link.target = "_blank";
+
+link.rel="noopener";
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
+
+URL.revokeObjectURL(blobUrl);
 
 });
