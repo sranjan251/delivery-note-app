@@ -6,11 +6,11 @@
     
     "main":"server.js",
     
-    "scripts":{
+    "scripts": {
 
-"start":"node server.js",
+"start": "node server.js",
 
-"postinstall":"npx puppeteer browsers install chrome"
+"postinstall": "PUPPETEER_SKIP_DOWNLOAD=false npx puppeteer browsers install chrome"
 
 },
     
