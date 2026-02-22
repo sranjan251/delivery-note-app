@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+body{
+
+font-family:"Times New Roman";
+
+line-height:1.6;
+
+font-size:14px;
+
+}
+
+.center{
+
+text-align:center;
+
+font-weight:bold;
+
+font-size:18px;
+
+}
+
+.section{
+
+margin-top:20px;
+
+}
+
+.footer{
+
+position:fixed;
+
+bottom:10px;
+
+left:20px;
+
+font-size:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="center">
+
+DELIVERY NOTE
+
+</div>
+
+<br>
+
+From:
+
+<br>
+
+{{sellerName}}<br>
+
+{{sellerAddress}}
+
+<br><br>
+
+Buyer’s Driving License Number :
+
+{{dlNumber}}
+
+<br>
+
+Buyer’s Name :
+
+{{buyerName}}
+
+<br><br>
+
+I have this day taken delivery of Car/Scooter/Motor Cycle bearing M.V. No
+
+{{registration}}
+
+and all related documents from {{sellerName}}.
+
+I declare that the purchase is for personal conveyance only and that the said vehicle and related documents have been duly inspected and approved by me to my satisfaction.
+
+Henceforth, I shall be solely responsible and liable for any accidents, offences or disputes regarding the vehicle including illegal use, traffic violation notices, accident litigation, payment of taxes, insurance and updating vehicle records with RTO.
+
+<div class="section">
+
+<b>Vehicle Details</b><br>
+
+1 Model : {{model}}<br>
+
+2 Color : {{color}}<br>
+
+3 Manufactured in : {{manufactured}}<br>
+
+4 Registration Number : {{registration}}<br>
+
+5 Registration Date : {{registrationDate}}<br>
+
+6 Engine Number : {{engine}}<br>
+
+7 Chassis Number : {{chassis}}<br>
+
+8 Mileage at Delivery : {{mileage}}<br>
+
+</div>
+
+<div class="section">
+
+<b>Documents Handed Over</b><br>
+
+{{documents}}
+
+</div>
+
+<div class="section">
+
+<b>Payment Details</b><br>
+
+{{paymentDetails}}
+
+</div>
+
+<div class="section">
+
+<b>Additional Notes</b><br>
+
+{{additionalNotes}}
+
+</div>
+
+<br><br>
+
+Buyer Signature : ____________
+
+<br>
+
+Time : {{buyerTime}}
+
+Date : {{buyerDate}}
+
+<br><br>
+
+Seller Signature : ____________
+
+<br>
+
+Time : {{sellerTime}}
+
+Date : {{sellerDate}}
+
+<div class="footer">
+
+Powered by KAMCARZ and Neovertx
+
+</div>
+
+</body>
+
+</html>

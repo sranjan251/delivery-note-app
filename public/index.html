@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport"
+
+content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Delivery Note Generator</h2>
+
+<form id="deliveryForm">
+
+<input name="sellerName" placeholder="Seller Name" required>
+
+<input name="sellerAddress" placeholder="Seller Address">
+
+<input name="dlNumber" placeholder="Buyer DL Number">
+
+<input name="buyerName" placeholder="Buyer Name">
+
+<input name="registration" placeholder="Registration">
+
+<input name="model" placeholder="Model">
+
+<input name="color" placeholder="Color">
+
+<input name="manufactured" placeholder="Manufactured">
+
+<input name="registrationDate" placeholder="Registration Date">
+
+<input name="engine" placeholder="Engine">
+
+<input name="chassis" placeholder="Chassis">
+
+<input name="mileage" placeholder="Mileage">
+
+
+<!-- DOCUMENTS -->
+
+<div class="form-section">
+
+<h3>Documents Handed Over</h3>
+
+<textarea
+
+name="documents"
+
+placeholder="Example:
+RC Book
+Insurance Policy
+PUC Certificate
+Spare Keys">
+
+</textarea>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="form-section">
+
+<h3>Payment Details</h3>
+
+<textarea
+
+name="paymentDetails"
+
+placeholder="Example:
+UPI Payment Received
+Bank Transfer Completed">
+
+</textarea>
+
+</div>
+
+
+<!-- NOTES -->
+
+<div class="form-section">
+
+<h3>Additional Notes</h3>
+
+<textarea
+
+name="additionalNotes"
+
+placeholder="Add any special remarks or conditions here">
+
+</textarea>
+
+</div>
+
+
+<input name="buyerTime" placeholder="Buyer Time">
+
+<input name="buyerDate" placeholder="Buyer Date">
+
+<input name="sellerTime" placeholder="Seller Time">
+
+<input name="sellerDate" placeholder="Seller Date">
+
+<button type="submit">
+
+Generate PDF
+
+</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
