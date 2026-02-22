@@ -2,9 +2,13 @@ const puppeteer = require("puppeteer");
 
 async function generatePDF(html){
 
-const browser = await puppeteer.launch({
+let browser;
 
-headless:"new",
+try{
+
+browser = await puppeteer.launch({
+
+headless:true,
 
 args:[
 
@@ -12,7 +16,13 @@ args:[
 
 "--disable-setuid-sandbox",
 
-"--disable-dev-shm-usage"
+"--disable-dev-shm-usage",
+
+"--disable-gpu",
+
+"--single-process",
+
+"--no-zygote"
 
 ]
 
@@ -49,6 +59,22 @@ right:"20mm"
 await browser.close();
 
 return pdf;
+
+}
+
+catch(error){
+
+console.error("PDF ERROR:",error);
+
+if(browser){
+
+await browser.close();
+
+}
+
+throw error;
+
+}
 
 }
 
