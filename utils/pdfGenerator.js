@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
 
 async function generatePDF(html){
 
@@ -9,6 +9,8 @@ try{
 browser = await puppeteer.launch({
 
 headless:true,
+
+executablePath:"/usr/bin/chromium",
 
 args:[
 
