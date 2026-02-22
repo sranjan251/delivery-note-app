@@ -10,10 +10,9 @@ let data = {};
 
 formData.forEach((v,k)=>{
 
-data[k] = v;
+data[k]=v;
 
 });
-
 
 function formatList(text){
 
@@ -29,19 +28,18 @@ return text
 
 }
 
+data.documents=formatList(data.documents);
 
-data.documents = formatList(data.documents);
+data.paymentDetails=formatList(data.paymentDetails);
 
-data.paymentDetails = formatList(data.paymentDetails);
-
-data.additionalNotes = (data.additionalNotes || "")
+data.additionalNotes=(data.additionalNotes||"")
 
 .replace(/\n/g,"<br>");
 
 
-// SEND REQUEST
+// DIRECT NAVIGATION (BEST FOR SAFARI)
 
-const res = await fetch("/generate",{
+const response = await fetch("/generate",{
 
 method:"POST",
 
@@ -55,30 +53,12 @@ body:JSON.stringify(data)
 
 });
 
+const blob = await response.blob();
 
-// MOBILE SAFE DOWNLOAD
+const fileURL = URL.createObjectURL(blob);
 
-const blob = await res.blob();
+// Safari reliable open
 
-const blobUrl = URL.createObjectURL(blob);
-
-
-// Create REAL LINK (Safari Compatible)
-
-const link = document.createElement("a");
-
-link.href = blobUrl;
-
-link.target = "_blank";
-
-link.rel="noopener";
-
-document.body.appendChild(link);
-
-link.click();
-
-document.body.removeChild(link);
-
-URL.revokeObjectURL(blobUrl);
+window.location.href = fileURL;
 
 });
