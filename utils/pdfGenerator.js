@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
 
 async function generatePDF(html){
 
@@ -6,7 +6,23 @@ const browser = await puppeteer.launch({
 
 headless:true,
 
-args:["--no-sandbox","--disable-setuid-sandbox"]
+// IMPORTANT PART
+
+executablePath:
+
+process.env.CHROME_PATH ||
+
+"/usr/bin/chromium-browser",
+
+args:[
+
+"--no-sandbox",
+
+"--disable-setuid-sandbox",
+
+"--disable-dev-shm-usage"
+
+]
 
 });
 
