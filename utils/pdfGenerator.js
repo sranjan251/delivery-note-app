@@ -1,18 +1,10 @@
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 async function generatePDF(html){
 
 const browser = await puppeteer.launch({
 
-headless:true,
-
-// IMPORTANT PART
-
-executablePath:
-
-process.env.CHROME_PATH ||
-
-"/usr/bin/chromium-browser",
+headless:"new",
 
 args:[
 
